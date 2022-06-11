@@ -6,13 +6,13 @@ modules:
     location: ~/.tmux/plugins/tpm
   - repo: git@github.com:junegunn/vim-plug.git
     pull_only: true
-    link: none
+    link: post
     mappings:
       - match: plug.vim
         target_dir: ~/.vim/autoload/
   - repo: git@github.com:eendroroy/alacritty-theme.git
     pull_only: true
-    link: none
+    link: post
     mappings:
       - match: themes/*.yaml
         target_dir: ~/.config/alacritty/colors/
