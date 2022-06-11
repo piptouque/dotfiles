@@ -4,17 +4,20 @@ modules:
     pull_only: true
     link: none
     location: ~/.tmux/plugins/tpm
+    name: tpm
   - repo: git@github.com:junegunn/vim-plug.git
     pull_only: true
     link: post
     mappings:
       - match: plug.vim
         target_dir: ~/.vim/autoload/
+    name: vim-plug
   - repo: git@github.com:eendroroy/alacritty-theme.git
     pull_only: true
     link: post
     mappings:
       - match: themes/*.yaml
         target_dir: ~/.config/alacritty/colors/
+    name: alacritty-theme
 
 
