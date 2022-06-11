@@ -9,15 +9,21 @@ modules:
     pull_only: true
     link: post
     mappings:
-      - match: plug.vim
+      # skip everything else
+      - match: '.*'
+        skip: true
+      - match: '\/plug\.vim$'
         target_dir: ~/.vim/autoload/
     name: vim-plug
   - repo: git@github.com:eendroroy/alacritty-theme.git
     pull_only: true
     link: post
     mappings:
-      - match: themes/*.yaml
-        target_dir: ~/.config/alacritty/colors/
+      # skip everything else
+      - match: '.*'
+        skip: true
+      - match: '\/themes/.*\.y(a)?ml$'
+        target_dir: ~/.config/alacritty/colors
     name: alacritty-theme
 
 

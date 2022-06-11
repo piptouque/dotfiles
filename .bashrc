@@ -16,7 +16,6 @@ set -o vi                                      # VI mode readline
 stty -ixon                                     # Set forward searching
 
 # File loading (Order matters) :ARCANE:
-. "$HOME/.cargo/env"
 for file in `cat <&15`; do
   [ -f ~/.bash_${file} ] && . ~/.bash_${file}
 done 15<<< "exports aliases prompt functions completion local"
