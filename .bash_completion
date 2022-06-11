@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# source all completion files
+for file in "$(find $HOME/.bash_completion.d/ -type f -print)"; do
+  [[ -f $file ]] && . "$file" --source-only
+done
