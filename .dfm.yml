@@ -3,7 +3,7 @@ modules:
   - repo: git@github.com:tmux-plugins/tpm.git
     pull_only: true
     link: none
-    location: ~/.tmux/plugins/
+    location: ~/.tmux/plugins/tpm
   - repo: git@github.com:junegunn/vim-plug.git
     pull_only: true
     link: none
