@@ -1,0 +1,20 @@
+modules:
+  # other useful stuff
+  - repo: git@github.com:tmux-plugins/tpm.git
+    pull_only: true
+    link: none
+    location: ~/.tmux/plugins/
+  - repo: git@github.com:junegunn/vim-plug.git
+    pull_only: true
+    link: none
+    mappings:
+      - match: plug.vim
+        target_dir: ~/.vim/autoload/
+  - repo: git@github.com:eendroroy/alacritty-theme.git
+    pull_only: true
+    link: none
+    mappings:
+      - match: themes/*.yaml
+        target_dir: ~/.config/alacritty/colors/
+
+
