@@ -1,9 +1,13 @@
 modules:
   # other useful stuff
   - repo: git@github.com:tmux-plugins/tpm.git
+    name: tpm
     pull_only: true
-    link: none
-    location: ~/.tmux/plugins/tpm
+    link: post
+    mappings:
+      - match: .
+        link_as_dir: true
+        target_dir: ~/.tmux/plugins/
   - repo: git@github.com:junegunn/vim-plug.git
     pull_only: true
     link: none
