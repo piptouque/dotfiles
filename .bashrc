@@ -9,6 +9,10 @@ fi
 set -o vi                                      # VI mode readline
 stty -ixon                                     # Set forward searching
 
+# additions to $PATH
+for file in `cat <&15`; do
+    [ -f "$HOME/.bash_${file}" ] && . "$HOME/.bash_${file}"
+  done 15<<< "exports exports_local"
 
 # File loading (Order matters) :ARCANE:
 for file in `cat <&15`; do

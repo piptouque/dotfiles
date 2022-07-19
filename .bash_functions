@@ -25,6 +25,6 @@ function pretty-path {
   echo -e ${PATH//:/\\n}
 }
 
-bind '"\C-h":"help_dotfiles\n"'
-bind '"\C-q":"ls \n"'
-bind '"\C-t":"pretty-path\n"'
+# bind '"\C-h":"help_dotfiles\n"'
+# bind '"\C-q":"ls \n"'
+# bind '"\C-t":"pretty-path\n"'
