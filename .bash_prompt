@@ -3,6 +3,20 @@
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
+setup_powerline() {
+  if ! command -v powerline-daemon &> /dev/null ; then
+    return 1;
+  fi
+  if [[ ! -v POWERLINE_ROOT ]]; then
+    return 1;
+  fi
+  command powerline-daemon -q
+  export POWERLINE_BASH_CONTINUATION=1
+  export POWERLINE_BASH_SELECT=1
+  source "$POWERLINE_ROOT/bindings/bash/powerline.sh"
+  return 0;
+}
+
 prompt_git() {
   if [ $(git &>/dev/null; echo "${?}") == '127' ]; then
     return;
@@ -102,4 +116,7 @@ PS1+="\[${orange}\]→ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
+#
+setup_powerline
+#
 # vim: ft=sh :
