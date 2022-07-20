@@ -192,6 +192,7 @@ call plug#begin()
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 Plug 'tpope/vim-surround'
+Plug 'preservim/vimux'
 
 " Initialize plugin system
 call plug#end()
