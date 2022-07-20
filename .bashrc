@@ -1,3 +1,8 @@
+# additions to $PATH
+for file in `cat <&15`; do
+    [ -f "$HOME/.bash_${file}" ] && . "$HOME/.bash_${file}"
+  done 15<<< "exports exports_local"
+
 [ -z "$PS1" ] && return
 
 shopt -s histappend                            # Add history from all the terminal opened
@@ -8,11 +13,6 @@ if [ $BASH_VERSINFO -ge 4 ]; then
 fi
 set -o vi                                      # VI mode readline
 stty -ixon                                     # Set forward searching
-
-# additions to $PATH
-for file in `cat <&15`; do
-    [ -f "$HOME/.bash_${file}" ] && . "$HOME/.bash_${file}"
-  done 15<<< "exports exports_local"
 
 # File loading (Order matters) :ARCANE:
 for file in `cat <&15`; do
