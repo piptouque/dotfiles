@@ -1,4 +1,10 @@
+#!/bin/bash
+
 # Environment variables -----------------------------------------------
+
+# local binaries
+export PATH="$HOME/.local/bin:$PATH"
+#
 case "$TERM" in
   "gnome") export TERM="gnome-256color" ;;
   "putty") export TERM="putty-256color" ;;

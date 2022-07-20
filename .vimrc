@@ -32,11 +32,6 @@ else
   set incsearch showcmd wildmenu
 endif
 
-" This is VIM we don't need arrow keys
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
 " }}}
 " Interface settings {{{
 "## COLORSCHEME
@@ -135,10 +130,10 @@ catch
 endtry
 
 "Customized shortcuts
-nnoremap <silent><leader>a :A<CR>
-nnoremap <silent><leader>d :Gdiff<CR>
-nnoremap <silent><leader>T :tabclose<CR>
-nnoremap <silent><leader>t :tabnew<CR>
+"nnoremap <silent><leader>a :A<CR>
+"nnoremap <silent><leader>d :Gdiff<CR>
+"nnoremap <silent><leader>T :tabclose<CR>
+"nnoremap <silent><leader>t :tabnew<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null %
@@ -150,6 +145,25 @@ ab WQ wq
 ab Q q
 ab WQA wqa
 ab Wqa wqa
+"}}}
+"Status line (Powerline) {{{
+" ---------------------------------------------------------------------
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+"}}}
+"vim-tmux-navigator {{{
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 "}}}
 "vim-plug {{{
 " --------------------------------------------------------------------
@@ -192,6 +206,7 @@ call plug#begin()
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/vimux'
 
 " Initialize plugin system
