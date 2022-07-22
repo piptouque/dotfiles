@@ -2,7 +2,6 @@
 " AUTHOR: Vicente Adolfo Bolea Sanchez
 " Dependencies:
 "  - It requires to have the following env variables:
-"    1. $CLANG_COMPLETE_LIB
 "    2. $GIT_AUTHOR_NAME
 "
 " Quick Predefined leader Maps
@@ -118,9 +117,15 @@ noremap  <Right>  <NOP>
 nnoremap Q <Nop>
 
 " Tabs
-nnoremap <silent> <F2> :tabprevious<Enter>
-nnoremap <silent> <F3> :tabnext<Enter>
-nnoremap <silent> <F4> :tabnew<Enter>
+" nnoremap <silent> <F2> :tabprevious<Enter>
+" nnoremap <silent> <F3> :tabnext<Enter>
+" nnoremap <silent> <F4> :tabnew<Enter>
+" nnoremap <silent> <C-h> :tabprevious<cr>
+" nnoremap <silent> <C-l> :tabnext<cr>
+
+nnoremap <silent> <C-S-k> :tabprevious<Enter>
+nnoremap <silent> <C-S-j> :tabnext<Enter>
+
 nnoremap <silent> <F5> :!ctags -f .tags -R -Q **/*.c **/*.cpp **/*.h<Enter>
 nnoremap <silent> <F8> :TagbarToggle<Enter>
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
@@ -145,6 +150,15 @@ ab WQ wq
 ab Q q
 ab WQA wqa
 ab Wqa wqa
+
+" let g:tmux_navigator_no_mappings = 1
+" 
+" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+" 
 "}}}
 "Status line (Powerline) {{{
 " ---------------------------------------------------------------------
@@ -154,18 +168,14 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 if has('python3')
-  python3 from powerline.vim import setup as powerline_setup
-  python3 powerline_setup()
-  python3 del powerline_setup
+  try
+    python3 from powerline.vim import setup as powerline_setup
+    python3 powerline_setup()
+    python3 del powerline_setup
+  catch
+  endtry
 endif
 
-"}}}
-"vim-tmux-navigator {{{
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 "}}}
 "vim-plug {{{
 " --------------------------------------------------------------------
@@ -208,8 +218,10 @@ call plug#begin()
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 Plug 'tpope/vim-surround'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/vimux'
+" Key-binding
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-unimpaired'
 
 " Initialize plugin system
 call plug#end()
@@ -241,10 +253,10 @@ let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeDirArrows = 0
 " }}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger        = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger   = "<C-k>"
-let g:UltiSnipsJumpBackwardTrigger  = "<C-M-k>"
-let g:SuperTabDefaultCompletionType = "<C-P>"
+"let g:UltiSnipsExpandTrigger        = "<C-j>"
+"let g:UltiSnipsJumpForwardTrigger   = "<C-k>"
+"let g:UltiSnipsJumpBackwardTrigger  = "<C-M-k>"
+"let g:SuperTabDefaultCompletionType = "<C-P>"
 "}}}
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME

@@ -1,7 +1,7 @@
 # additions to $PATH
 for file in `cat <&15`; do
     [ -f "$HOME/.bash_${file}" ] && . "$HOME/.bash_${file}"
-  done 15<<< "exports exports_local"
+  done 15<<< "exports exports.local"
 
 [ -z "$PS1" ] && return
 
